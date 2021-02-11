@@ -16,20 +16,19 @@ using namespace std;
 
 int main(){
     double real, imaginary;
-    int opiton;
+    int option;
     cout << "Complex converter." << endl;
     cout << "1 to make a calc 0 to exit: " << endl;
-    cin >> opiton;
+    cin >> option;
     
-    while (opiton == 1) {
-        if (opiton != 1){
+    while (option == 1) {
+        if (option != 1){
             return 0;
-            
         }
         
         cout << "Enter real component: ";
         cin >> real;
-        cout << "Enter imaginary component:";
+        cout << "Enter imaginary component: ";
         cin >> imaginary;
         
         double modulus, theta;
