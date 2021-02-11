@@ -22,6 +22,11 @@ int main(){
     cin >> opiton;
     
     while (opiton == 1) {
+        if (opiton != 1){
+            return 0;
+            
+        }
+        
         cout << "Enter real component: ";
         cin >> real;
         cout << "Enter imaginary component:";
@@ -30,25 +35,11 @@ int main(){
         double modulus, theta;
         
         modulus = sqrt((real*real)+(imaginary*imaginary));
-        theta = (imaginary/real);
-        theta = atan(theta);
-        theta = theta*(180/PI);
+        theta = atan2(imaginary, real)*180/PI;
         
-        cout << modulus << endl;
-        cout << theta << endl;
-        
-        // if (real < 0 
-        
-        if (real>0 && imaginary>0) //Q1
-            cout << "Polar Form: " << std::setprecision(2) << modulus << " Cos("<< std::setprecision(2) << theta <<")+i Sin(" << std::setprecision(2) << theta << ")" << endl;
-        
-        else if (real<0 && imaginary>0) //Q2
-            cout << "Polar Form: " << std::setprecision(4) << modulus << " Cos("<< std::setprecision(4) << theta+180.00 <<")+i Sin(" << std::setprecision(2) << theta+180.00 << ")" << endl;
-        
-        else if (real<0 && imaginary<0) //Q3
-            cout << "Polar Form: " << std::setprecision(4) << modulus << " Cos("<< std::setprecision(4) << theta+180.00 <<")+i Sin(" << std::setprecision(2) << theta+180.00 << ")" << endl;
-        
-        else if (real<0 && imaginary>0) //Q4
-            cout << "Polar Form: " << std::setprecision(4) << modulus << " Cos("<< std::setprecision(4) << theta+360.00 <<")+i Sin(" << std::setprecision(4) << theta+360.00 << ")" << endl;
+        if ((real<0 || real>0) && imaginary<0)
+            theta = theta + 360;
+
+        cout << "|Z| = " << setprecision(2) << modulus << " cos " << theta << " + i sin " << theta << endl;
     }
 }
