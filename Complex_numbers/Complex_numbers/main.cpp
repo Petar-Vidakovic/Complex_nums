@@ -10,9 +10,31 @@
 #include <iomanip>
 #include <cmath>
 #define PI 3.141592654
-
-
 using namespace std;
+
+
+void Convert_complex (double real, double imaginary){
+    double modulus, theta;
+    
+    modulus = sqrt((real*real)+(imaginary*imaginary));
+    theta = atan2(imaginary, real)*180/PI;
+    
+    if ((real<0 || real>0) && imaginary<0)
+        theta = theta + 360;
+        cout << "|Z| = " << setprecision(2) << modulus << " cos " << setprecision(5) <<theta << " + i sin " << theta << endl;
+        cout << "|Z| = " << setprecision(2) << modulus << " e^i(360 + " << setprecision(5) <<theta << ")" << endl;
+    
+    do {
+        theta = theta - 360;
+    } while (theta > 360);
+    cout << "|Z| = " << setprecision(2) << modulus << " e^i(" << setprecision(5) <<theta+360 << ")" << endl;
+    
+    // a+bi
+    cout << "|Z| = " << real << "+" << imaginary << "i" << endl;
+    
+    
+}
+
 
 int main(){
     double real, imaginary;
@@ -23,6 +45,7 @@ int main(){
     
     while (option == 1) {
         if (option != 1){
+            cout << "Thanks" << endl;
             return 0;
         }
         
@@ -31,14 +54,9 @@ int main(){
         cout << "Enter imaginary component: ";
         cin >> imaginary;
         
-        double modulus, theta;
+        Convert_complex(real, imaginary);
         
-        modulus = sqrt((real*real)+(imaginary*imaginary));
-        theta = atan2(imaginary, real)*180/PI;
-        
-        if ((real<0 || real>0) && imaginary<0)
-            theta = theta + 360;
-
-        cout << "|Z| = " << setprecision(2) << modulus << " cos " << theta << " + i sin " << theta << endl;
     }
 }
+
+
