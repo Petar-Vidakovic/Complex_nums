@@ -12,29 +12,7 @@
 #define PI 3.141592654
 using namespace std;
 
-
-void Convert_complex (double real, double imaginary){
-    double modulus, theta;
-    
-    modulus = sqrt((real*real)+(imaginary*imaginary));
-    theta = atan2(imaginary, real)*180/PI;
-    
-    if ((real<0 || real>0) && imaginary<0)
-        theta = theta + 360;
-        cout << "|Z| = " << setprecision(2) << modulus << " cos " << setprecision(5) <<theta << " + i sin " << theta << endl;
-        cout << "|Z| = " << setprecision(2) << modulus << " e^i(360 + " << setprecision(5) <<theta << ")" << endl;
-    
-    do {
-        theta = theta - 360;
-    } while (theta > 360);
-    cout << "|Z| = " << setprecision(2) << modulus << " e^i(" << setprecision(5) <<theta+360 << ")" << endl;
-    
-    // a+bi
-    cout << "|Z| = " << real << "+" << imaginary << "i" << endl;
-    
-    
-}
-
+void Convert_complex(double, double);
 
 int main(){
     double real, imaginary;
@@ -55,8 +33,26 @@ int main(){
         cin >> imaginary;
         
         Convert_complex(real, imaginary);
-        
     }
 }
 
-
+void Convert_complex (double real, double imaginary){
+    double modulus, theta;
+    
+    modulus = sqrt((real*real)+(imaginary*imaginary));
+    theta = atan2(imaginary, real)*180/PI;
+    
+    if ((real<0 || real>0) && imaginary<0)
+        theta = theta + 360;
+        cout << "|Z| = " << setprecision(2) << modulus << " cos " << setprecision(5) <<theta << " + i sin " << theta << endl;
+        cout << "|Z| = " << setprecision(2) << modulus << " e^i(360 + " << setprecision(5) <<theta << ")" << endl;
+    
+    //finish the exponential form
+    do {
+        theta = theta - 360;
+    } while (theta > 360);
+    cout << "|Z| = " << setprecision(2) << modulus << " e^i(" << setprecision(5) <<theta+360 << ")" << endl;
+    
+    // a+bi
+    cout << "|Z| = " << real << "+" << imaginary << "i" << endl;
+}
