@@ -19,6 +19,7 @@ int main(){
     int option;
     cout << "Complex converter." << endl;
     cout << "1 to make a calc 0 to exit: " << endl;
+    cout << "1) Computes the modulus and theta then shown in the various forms: Square, Polar, and Exponental " << endl;
     cin >> option;
     
     while (option == 1) {
